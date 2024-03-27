@@ -1,0 +1,308 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta name="description" content=""/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>C++作业 | 橙子味薄荷</title>
+
+<link rel="shortcut icon" href="https://luckybal.github.io/favicon.ico?v=1711546079386">
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://luckybal.github.io/styles/main.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets/highlight.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dockerfile.min.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.15.10/languages/dart.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/moment@2.27.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"></script>
+<!-- DEMO JS -->
+<!--<script src="media/scripts/index.js"></script>-->
+
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
+</head>
+<body>
+<div class="main gt-bg-theme-color-first">
+    <nav class="navbar navbar-expand-lg">
+    <div class="navbar-brand">
+        <img class="user-avatar" src="/images/avatar.png" alt="头像">
+        <div class="site-name gt-c-content-color-first">
+            橙子味薄荷
+        </div>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars gt-c-content-color-first" style="font-size: 18px"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav mr-auto" style="text-align: center">
+            
+                <div class="nav-item">
+                    
+                        <a href="/archives" class="menu gt-a-link">
+                            归档
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/tags" class="menu gt-a-link">
+                            标签
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="/about" class="menu gt-a-link">
+                            关于
+                        </a>
+                    
+                </div>
+            
+                <div class="nav-item">
+                    
+                        <a href="https://luckybal.github.io" class="menu gt-a-link">
+                            主页
+                        </a>
+                    
+                </div>
+            
+        </div>
+        <div style="text-align: center">
+            <form id="gridea-search-form" style="position: relative" data-update="1711546079386" action="/search/index.html">
+                <input class="search-input" autocomplete="off" spellcheck="false" name="q" placeholder="搜索文章" />
+                <i class="fas fa-search gt-c-content-color-first" style="position: absolute; top: 9px; left: 10px;"></i>
+            </form>
+        </div>
+    </div>
+</nav>
+
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    C++作业
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2024-03-24 ·
+                    </time>
+                    
+                </div>
+                <div class="post-content">
+                    <blockquote>
+<p><strong>只是为了完成老师的任务罢了。。。。。。</strong></p>
+</blockquote>
+<p>1一年365天，以第一天的能力值作为基数，记为1.0: 如果每天进步1%,一年后的能力值达到多少？</p>
+<pre><code>#include&lt;iostream&gt;
+using namespace std;
+
+int main() {
+
+    double ability = 1.0; //第一天的能力值作为基数
+    double improvement_rate = 0.01; //每天进步1%
+    int days_in_year = 365; //一年365天
+
+    //每天能力都在进步，按照进步率计算一年后的能力值
+    for(int i=0; i&lt;days_in_year; i++) {
+        ability += ability * improvement_rate;
+    }
+
+    cout &lt;&lt; &quot;如果每天进步1%，一年后的能力值为： &quot;;
+    cout &lt;&lt; ability &lt;&lt; &quot;\n&quot;;
+
+    return 0;
+}
+</code></pre>
+<p>2.一年365天，以第一天的能力值1.0为基数，每周工作5天每天能力值比前一天提高1%,休息2天能力值保持不变一年后能力值达到多少？</p>
+<pre><code>#include&lt;iostream&gt;
+using namespace std;
+
+int main() {
+
+    double ability = 1.0; //第一天的能力值作为基数
+    double improvement_rate = 0.01; //每天进步1%
+    int days_in_year = 365; //一年365天
+    int work_days_in_week = 5; //每周工作5天
+
+    // 一个七天周期中的第几天
+    int day_of_week = 0;
+     
+    //每天能力都在进步，按照进步率计算一年后的能力值
+    for(int i=0; i&lt;days_in_year; i++) {
+        // 如果是工作日，能力值提升
+        if (day_of_week &lt; work_days_in_week) {
+            ability *= (1 + improvement_rate);
+        }
+        // yOffset处理周的七天
+        day_of_week = (day_of_week + 1) % 7;
+    }
+
+    cout &lt;&lt; &quot;一年后的能力值为： &quot;;
+    cout &lt;&lt; ability &lt;&lt; &quot;\n&quot;;
+
+    return 0;
+}
+</code></pre>
+<p>3.一年365天，以第一天的能力值1.0为基数，每周工作5天每天能力值比前一天提高1%,休息2天每天退步1%,一年后的结果怎样？</p>
+<pre><code>#include&lt;iostream&gt;
+using namespace std;
+
+int main() {
+
+    double ability = 1.0; //第一天的能力值作为基数
+    double improvement_rate = 0.01; //每天进步1%
+    double decline_rate = 0.01; //每天退步1%
+    int days_in_year = 365; //一年365天
+    int work_days_in_week = 5; //每周工作5天
+
+    // 一个七天周期中的第几天
+    int day_of_week = 0;
+
+    //每天能力都在进步或退步，按照进步率或退步率计算一年后的能力值
+    for(int i=1; i&lt;=days_in_year; i++) {
+        // 如果是工作日，能力值提升
+        if (day_of_week &lt; work_days_in_week) {
+            ability *= (1 + improvement_rate);
+        }
+        // 如果是休息日，能力值退步
+        else {
+            ability *= (1 - decline_rate);
+        }
+        //处理周的七天
+        day_of_week = (i % 7 == 0)? 0 : day_of_week+1;
+    }
+
+    cout &lt;&lt; &quot;一年后的能力值为： &quot;;
+    cout &lt;&lt; ability &lt;&lt; &quot;\n&quot;;
+
+    return 0;
+}
+</code></pre>
+<p>4.一年365天，以第一天的1.0作为基数:休息日2天每天退步1%,工作日要如何努力才能和365天每天进步1%达到相同的效果。</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;cmath&gt;
+using namespace std;
+
+int main() {
+    // 前提信息：一年365天，工作日5天，休息日2天，休息日一天能力值退步1%
+    int total_days = 365;
+    int rest_days_per_week = 2;
+    double decline_rate_per_day = 0.01;
+    // 假设一年中有52周整，还剩1天，需要特殊处理
+    int total_weeks = total_days / 7;
+    int remaining_days = total_days % 7;
+    int work_days = total_weeks * 5 + min(remaining_days, 5);
+    int rest_days = total_days - work_days;
+
+    double total_decline = 1.0;
+    for (int i = 0; i &lt; rest_days; i++) {
+        total_decline *= (1 - decline_rate_per_day);
+    }
+
+    // 希望一年后和每天进步1%达到相同的效果，求出每天需要的进步率
+    double target_ability = pow(1.01, total_days);
+    double improvement_rate_per_day = pow(target_ability / total_decline, 1.0 / work_days) - 1;
+
+    cout &lt;&lt; &quot;每天需要努力的比例为： &quot;;
+    cout &lt;&lt; improvement_rate_per_day &lt;&lt; &quot;\n&quot;;
+
+    return 0;
+}
+</code></pre>
+<p>5.无抵押贷款5000元，贷款期限6月，日息是1‰。半年到期后一次性应还本金和利息一共多少钱？如果半年后未能如期归还本息那么每逾期一天应该归还本息多少钱？以逾期一个月为例计算。</p>
+<pre><code>#include&lt;iostream&gt;
+using namespace std;
+
+int main() {
+
+    double loan = 5000; // 初始贷款金额
+    int term = 6; // 贷款期限，以月为单位
+    double rate = 0.001; // 日利率为 1‰
+    int total_days = term * 30; // 总贷款期限（以天为单位）
+
+    double total_amount_to_pay = loan; // 计算到期应付总金额
+
+    // 计算在贷款期限内应付的总金额
+    for(int i=0; i&lt;total_days; i++) {
+        total_amount_to_pay += total_amount_to_pay * rate;
+    }
+
+    cout &lt;&lt; &quot;在贷款期限 &quot; &lt;&lt; term &lt;&lt; &quot; 个月之后，应付的总金额：&quot;;
+    cout &lt;&lt; total_amount_to_pay &lt;&lt; &quot; 元\n&quot;;
+
+    double amount_per_day_after_term = total_amount_to_pay * rate;
+    cout &lt;&lt; &quot;在贷款期限 &quot; &lt;&lt; term &lt;&lt; &quot; 个月之后逾期一天，应付的金额：&quot;;
+    cout &lt;&lt; amount_per_day_after_term &lt;&lt; &quot; 元/天\n&quot;;
+
+    // 同样计算逾期30天后应付的总金额
+    double total_amount_to_pay_delayed = total_amount_to_pay;
+    for(int i=0; i&lt;30; i++) {
+        total_amount_to_pay_delayed += total_amount_to_pay_delayed * rate;
+    }
+
+    cout &lt;&lt; &quot;在贷款期限 &quot; &lt;&lt; term &lt;&lt; &quot; 个月之后，逾期一个月，应付的总金额：&quot;;
+    cout &lt;&lt; total_amount_to_pay_delayed &lt;&lt; &quot; 元\n&quot;;
+
+    return 0;
+}
+</code></pre>
+
+                </div>
+            </article>
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+        <div class="site-footer gt-c-content-color-first">
+    <div class="slogan gt-c-content-color-first">一个阿宅的个人博客</div>
+    <div class="social-container">
+        
+            
+        
+            
+        
+            
+        
+            
+                <a href="https://www.zhihu.com/people/49-70-41-32" target="_blank">
+                    <i class="fab fa-zhihu gt-c-content-color-first"></i>
+                </a>
+            
+        
+            
+        
+            
+        
+    </div>
+    <div class="footer-info">
+        Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+    <div>
+        Theme by <a href="https://imhanjie.com/" target="_blank">imhanjie</a>, Powered by <a
+                href="https://github.com/getgridea/gridea" target="_blank">Gridea | <a href="https://luckybal.github.io/atom.xml" target="_blank">RSS</a></a>
+    </div>
+</div>
+
+<script>
+  hljs.initHighlightingOnLoad()
+</script>
+
+    </div>
+</div>
+</body>
+</html>
